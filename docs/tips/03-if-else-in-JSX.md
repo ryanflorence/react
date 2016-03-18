@@ -33,7 +33,9 @@ That's not valid JS. You probably want to make use of a ternary expression:
 ReactDOM.render(<div id={condition ? 'msg' : null}>Hello World!</div>, mountNode);
 ```
 
-If a ternary expression isn't robust enough, you can use `if` statements outside of your JSX to determine which components should be used:
+If you'd like the more traditional looking template syntax, you can use a ternary with parens to visually distinguish the flow:
+
+You can use also use `if` statements outside of your JSX to determine which components should be used:
 
 ```js
 var loginButton;
@@ -51,7 +53,22 @@ return (
 );
 ```
 
-Or if you prefer a more "inline" aesthetic, define [immediately-invoked function expressions](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) _inside_ your JSX:
+Or if you prefer a more "inline" aesthetic that looks similar to HTML templating languages you can use ternaries with parens to indicate the flow on new lines:
+
+```js
+return (
+  <nav>
+    <Home />
+    {loggedIn ? (
+      <LogoutButton />
+    ) : (
+      <LoginButton />
+    )}
+  </nav>
+);
+```
+
+You can even define [immediately-invoked function expressions](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) _inside_ your JSX:
 
 ```js
 return (
